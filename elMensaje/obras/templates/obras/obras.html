@@ -1,0 +1,87 @@
+{% extends 'core/base_catalogo.html' %}
+
+{%block title%}
+El Mensaje - Galeria de Arte | OBRAS
+{%endblock%}
+{% load static %}
+{%block css%}
+    <link rel="icon" href="{% static 'core/img/el_mensaje_iso.png'%}">
+    <link rel="stylesheet" href="{% static 'core/css/catalogo.css'%}">
+{%endblock%}
+ 
+
+        {%block content%}
+
+        <div>
+            <div class="linea"> - </div>
+          </div>
+          <div class="cartelera">
+              {%for art in artista%}
+              <div class="letrina">
+                  <div class="exposicion">
+                  <p class="cartel1">MUESTRA</p>
+                  </div>
+                  <div class="artista">
+                  <p class="cartel1">JORGE IGLESIAS</p>
+                  </div>
+                  <div class="fecha">
+                  <p class="cartel2">{{art.fecha}}</p>
+                  </div>
+              </div>
+          </div>
+      
+          <div>
+      
+          </div>
+          
+        </header>
+        <div class="expofecha">
+          <p class="expo">EXPOSICION DE OBRAS</p>
+                  
+          <p class="expo2"></p>
+              
+        </div>
+        <br>
+        <br>
+        <div class="expositor obras" >
+            <br>
+            <h3 class="expo">“Pinturas tridimensionales”</h3>
+            <br>
+            <p class="descripcion">{{art.descripcion}}</p>
+    
+        </div>
+        {%endfor%}
+        <section class="obras">
+            
+        {%for obra in obras%}
+          <div class="obra">
+            <div class="cuadro">
+              
+                <img class="imgcuadro shadow  bg-body " src="{{obra.imagen.url}}" alt="{{obra.titulo}}">
+              
+            </div>
+            <div class="descripcion">
+               
+                <h3>"{{obra.titulo}}" </h3>
+                <br>
+                <p> {{obra.medidas}}</p>
+                
+                <p> {{obra.tecnica}}</p>
+                 
+                <br>
+                
+                <p>{{obra.precio}}</p>
+                <br>
+                <button type="button" class="btn btn-primary btnsubasta btncompra" data-bs-toggle="modal" data-bs-target="#exampleModalToggle" name="{{obra.titulo}}">
+                  COMPRAR
+                </button>
+            </div>
+          </div>
+          <br>
+        {%endfor%} 
+
+      <br>
+      <br>
+    </section>
+
+    {%endblock%}

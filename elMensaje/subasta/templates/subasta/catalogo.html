@@ -1,0 +1,82 @@
+{% extends 'core/base_catalogo.html' %}
+
+{%block title%}
+El Mensaje - Galeria de Arte | SUBASTA
+{%endblock%}
+{% load static %}
+{%block css%}
+    <link rel="icon" href="{% static 'core/img/el_mensaje_iso.png'%}">
+    <link rel="stylesheet" href="{% static 'core/css/catalogo.css'%}">
+{%endblock%}
+ 
+
+        {%block content%}
+        <div>
+            <div class="linea"> - </div>
+          </div>
+          <div class="cartelera">
+              
+              <div class="letrina">
+                  <div class="exposicion">
+                  <p class="cartel1">PRÓXIMA</p>
+                  </div>
+                  <div class="artista">
+                  <p class="cartel1">SUBASTA</p>
+                  </div>
+                  <div class="fecha">
+                  <p class="cartel2">29/4 - 19 HS </p>
+                  </div>
+              </div>
+          </div>
+      
+          <div>
+      
+          </div>
+          
+        </header>
+        <div class="expofecha">
+          <p class="expo">EXPOSICION DE OBRAS</p>
+                  
+          <p class="expo2">del 15 al 21 de Marzo   -   de 14 a 20 hs.</p>
+              
+        </div>  
+       
+        <section class="obras">
+            
+        {%for subasta in subastas%}  
+          <div class="obra">
+            <div class="cuadro">
+              
+                <img class="imgcuadro shadow  bg-body " src="{{subasta.imagen.url}}" alt="{{subasta.titulo}}">
+              
+            </div>
+            <div class="descripcion">
+               
+                <h3>{{subasta.apellido | upper}},{{subasta.nombre}} </h3>
+                <br>
+                <p> {{subasta.titulo}}</p>
+                
+                <p> {{subasta.medidas}}</p>
+                 
+                <p> {{subasta.tecnica}}</p>
+                 
+                <p> {{subasta.firma}}</p>
+                
+                <br>
+                <p> lote {{subasta.lote}}</p>
+                
+                <p>Precio de base: U$S {{subasta.base}}</p>
+                <br>
+                <button type="button" class="btn btn-primary btnsubasta btncompra" data-bs-toggle="modal" data-bs-target="#exampleModalToggle" name="lote{{subasta.lote}}">
+                  PARTICIPAR
+                </button>
+            </div>
+          </div>
+          <br>
+          {%endfor%} 
+
+      <br>
+      <br>
+    </section>
+
+    {%endblock%}

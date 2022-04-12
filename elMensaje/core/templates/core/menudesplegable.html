@@ -1,0 +1,54 @@
+
+
+
+{%block content%}
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel">MENU</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      
+      <div>
+        <br>
+        <br>
+        <br>
+        <a class="linkmenu" href="{% url 'index' %}">INICIO</a>
+        <br>
+        <br>
+        <a class="linkmenu" href="{% url 'subasta' %}">SUBASTA</a>
+        <br>
+        <br>
+        <a class="linkmenu" href="{% url 'muestras' %}">MUESTRAS</a>
+        <br>
+        <br>
+        <a class="linkmenu" href="{% url 'compra' %}">RECEPCION DE OBRAS</a></a>
+        <br>
+        <br>
+        <a class="linkmenu" href="{% url 'contacto' %}">CONTACTO</a>
+        </div>
+        <br>
+        <br>
+        <br>
+        
+        <div class="direccion">Arenales 867</div>
+          <br>
+          <div class="direccion"> CP 1007, CABA</div>
+          <br>
+          <div class="direccion">info@galeriaelmensaje.com.ar</div>
+          <br>
+          <div class="iconos">
+            <a class="redes" href="https://www.facebook.com/El-Mensaje-Galer%C3%ADa-de-Arte-476773929187995/" target="blank"><i class="fab fa-facebook">&nbsp&nbsp&nbsp&nbsp</i></a>
+            <a class="redes" href="https://www.youtube.com/channel/UC8fYMD5hmlq3IrVK9vJzFRQ" target="blank"><i class="fab fa-youtube">&nbsp&nbsp&nbsp&nbsp</i></a>
+          <a class="redes"  href="https://www.instagram.com/galeriaelmensaje/?hl=en" target="blank"><i class="fab fa-instagram"></i></a>
+
+          </div>
+          <br>
+          <a class="terms"   href="{% url 'terms' %}">TÉRMINOS Y CONDICIONES</a>
+          
+        
+    </div>
+  </div>
+
+  {%endblock%}

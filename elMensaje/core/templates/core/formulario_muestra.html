@@ -1,0 +1,47 @@
+{%block content%}
+{% load static %}
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalToggleLabel">El Mensaje Galeria</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Complete el siguiente formulario y a la brevedad nos pondremos en contacto para continuar con la operación</p>
+          <form action="{% static 'core/php/send.php'%} " method="post" name="contacto" id ="contacto">
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Nombre</label>
+              <input type="text" class="form-control" id="recipient-nombre" name="nombre1"  required>
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Apellido</label>
+              <input type="text" class="form-control" id="recipient-apellido" name="apellido1"  required>
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Email</label>
+              <input type="email" class="form-control" id="recipient-correo" name="email1" required placeholder="nombre@ejemplo.com">
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Teléfono</label>
+              <input type="text" class="form-control" id="recipient-telefono" name="telefono1"  required>
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Obra</label>
+              <input type="text" class="form-control" id="recipient-obra" name="obra1" readonly>
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Aclaraciones:</label>
+              <textarea class="form-control" id="recipient-mensaje" name="texto1"></textarea>
+            </div>
+          
+        <div class="modal-footer">
+          <button class="btn btn-primary btnenviar" id="boton-formulario" type="submit">Enviar</button>
+        </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {%endblock%}

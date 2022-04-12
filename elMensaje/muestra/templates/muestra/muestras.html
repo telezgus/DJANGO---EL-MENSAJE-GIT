@@ -1,0 +1,65 @@
+{% extends 'core/base.html' %}
+
+{%block title%}
+El Mensaje - Galeria de Arte | MUESTRAS
+{%endblock%}
+{% load static %}
+{%block css%}
+    <link rel="icon" href="{% static 'core/img/el_mensaje_iso.png'%}">
+    <link rel="stylesheet" href="{% static 'core/css/piccolo_cpapriccio.css'%}">
+{%endblock%}
+ 
+
+        {%block content%}
+
+
+        <div>
+          <div class="linea"> - </div>
+        </div>
+        <br>
+        <br>
+        <div class="cartelera">
+            
+            <div class="letrina">
+                <div class="exposicion">
+                <p class="cartel1"></p>
+                </div>
+                <div class="artista">
+                    
+                  <p class="cartel1"> MUESTRAS</p>
+                </div>
+                <div class="cartel2">
+                    
+                  {%for muestra in muestras%}
+                        <a  href="{% url 'obras'%}?lang={{muestra.id}}">
+                        <div class="contenedor shadow rounded" >
+                            
+                            
+                            <div class="centrado artista ">{{muestra.artista | upper}}</div>
+                        </div>
+                        </a>
+                        <br>
+                        <br>
+                {%endfor%}    
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+    
+        <div>
+          
+        </div>
+        <div class="divlogosolo">
+          <img class="logosolo" src="{% static 'core/img/el_mensaje_positivo_iso.png'%}" alt="elmensajelogo">
+          
+      </div>
+      
+        
+      </header>
+      {%endblock%}
+
+    
+      

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>El Mensaje - Galeria de Arte</title><meta name="description" content="Subastas, compra y venta de arte Clásico, Moderno y Contemporáneo.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/026e4c5a3a.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"> 
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
+  <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+  {% load static %}
+  <link rel="icon" href="{% static 'core/img/el_mensaje_iso.png'%}">
+  <link rel="stylesheet" href="{% static 'core/css/index.css'%}">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-224679583-1">
+  </script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+   gtag('config', 'UA-224679583-1');
+  </script>
+  
+</head>
+
+<body>
+  <header class="header">
+    <div class="menu shadow">
+      <div class="logo">
+          <img class="imglogo" src="{% static 'core/img/El-Mensaje_Isologotipo_negativo_transparente.png'%}" alt="elmensajelogo">
+          <img class="imgiso" src="{% static 'core/img/El-Mensaje_Isologotipo_Iso-Síntesis_negativo_transparente.png'%}" alt="el_mensaje_iso">
+      </div>
+      <div class="botonmenu">
+        <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+          <i class="fas fa-bars"></i>
+        </a> 
+
+        
+      </div>
+
+      <nav class="nav">
+        <a href="{% url 'subasta' %}">SUBASTA</a>
+        <br>
+                     
+        <a href="{% url 'muestras' %}">MUESTRAS</a>
+        <br>
+        
+        <a href="{% url 'compra' %}">RECEPCION DE OBRAS</a>
+        <br>
+        
+        <a href="{% url 'contacto' %}">CONTACTO</a>
+      </nav>
+      <div class="social">
+                    
+        <br>
+        <div class="direccion">info@galeriaelmensaje.com.ar</div>
+        <br>
+        <div class="direccion">Arenales 867,  CP 1007, CABA </div> 
+        <br>
+        <a class="terms"   href="{% url 'terms' %}">TÉRMINOS Y CONDICIONES</a>
+        
+        <br>
+        <div class="iconos">
+          
+          <a class="redes" href="https://www.facebook.com/El-Mensaje-Galer%C3%ADa-de-Arte-476773929187995/" target="blank"><i class="fab fa-facebook">&nbsp&nbsp&nbsp&nbsp</i></a>
+          <a class="redes" href="https://www.youtube.com/channel/UC8fYMD5hmlq3IrVK9vJzFRQ" target="blank"><i class="fab fa-youtube">&nbsp&nbsp&nbsp&nbsp</i></a>
+          <a class="redes"  href="https://www.instagram.com/galeriaelmensaje/?hl=en" target="blank"><i class="fab fa-instagram"></i></a>
+
+        </div>
+        
+        </div>
+      </div>  
+
+      
+    </div>
+    {%for i in portada%}
+    <div class="cartelera">
+      {% if i.opcion == 'MUESTRA' %}
+        <div class="letrina"><a class="linksub" href="{% url 'obras'%}?lang={{i.muestra}}">
+      {% else %}
+        <div class="letrina"><a class="linksub" href="{% url 'subasta'%}">
+      {% endif %}" 
+            <div class="exposicion">
+            <p class="cartel1"> {{i.opcion}} </p>           
+            </div>
+            <div class="exposicion">
+              <p class="cartel1">{{i.artista}}</p>           
+            </div>
+            <br>
+            <div class="artista">
+            <p class="cartel1">{{i.titulo}}</p>
+            
+            </div>
+            <br>
+            <div class="fecha">
+            <p class="cartel2">{{i.fecha}}</p>
+            </div>
+            
+            <div class="fecha">
+              <p class="cartel2"><b>ARENALES 867</b></p>
+
+            </div></a>
+            
+        </div>
+    </div>
+
+    <div>
+
+    </div>
+    {%endfor%}
+  </header>
+
+   <!-- MENU DESPLGABLE-->
+   {%include 'core/menudesplegable.html'%}
+
+   {%include 'core/scripts.html'%} 
+   
